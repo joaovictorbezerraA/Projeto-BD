@@ -16,7 +16,8 @@ Pedir pra ele mandar o texto do MER; Como fazer o auto-relacionamento; Perguntar
 ## lucena
 ### 17/11 (madrugada), Falta:
 
-Discutir sobre as duvidas acima com Batista; Fazer o auto-relacionamento; Discutir sobre as CONSTRAINS, se devemos adicionar, tirar ou mudar as que eu fiz. Revisar as coisas que eu fiz só e com sono, principalmente as CONSTRAINS.
+Discutir sobre as duvidas acima com Batista; Fazer o auto-relacionamento; Discutir sobre as CONSTRAINS, se devemos adicionar, tirar ou mudar as que eu fiz. Revisar as coisas que eu fiz só e com sono, principalmente as CONSTRAINS.  
+NORMALIZAR O BANCO!!!
 
 ### O que foi feito:
 
