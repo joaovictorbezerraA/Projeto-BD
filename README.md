@@ -27,6 +27,15 @@ Criei as outras tabelas que não sejam o auto-relacionamento, e fiz os relaciona
 
 O mesmo da att acima.
 
+## lucena
+### 18/11, Falta:
+
+Discutir sobre as constrains, esperar que Baptista mande o texto pra ver se cabe outras;
+Revisar o código
+
+###  O que foi feito:
+
+Fiz o auto-relacionamento, adicionei algumas constrains e tirei umas que Baptista disse que eram desnecessárias
 
 # AVISEM O QUE FOREM FAZER PELO AMOR DE DEUS
 
