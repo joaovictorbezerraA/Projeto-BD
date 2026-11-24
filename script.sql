@@ -98,6 +98,7 @@ CREATE TABLE Produto(
   PRIMARY KEY(codigo),
   FOREIGN KEY (categoria) REFERENCES Categoria(codigo)
   ON DELETE CASCADE,
+  FOREIGN KEY (cod_ordem) REFERENCES OrdemDeCompra(codigo),
   CONSTRAINT check_nota CHECK (nota <= 5 AND nota >= 0),
   CONSTRAINT check_valores CHECK (preco_compra >= 0 AND preco_venda >= 0)
 );
