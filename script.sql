@@ -1,6 +1,6 @@
 CREATE TABLE Cliente (
   cpf CHAR(11),
-  nome CHAR(30) NOT NULL,
+  nome CHAR(100) NOT NULL,
   sexo CHAR,
   data_nascimento DATE,
   pontos_crm INT DEFAULT 0 NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Cliente (
   cep CHAR(8) NOT NULL,
   PRIMARY KEY(cpf),
   FOREIGN KEY (indicado) REFERENCES Cliente(cpf),
-  CONSTRAINT chk_pontos CHECK (pontos_crm > 0),
+  CONSTRAINT chk_pontos CHECK (pontos_crm >= 0),
   CONSTRAINT chk_sexo CHECK (sexo = 'F' OR sexo = 'M')
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE Transportadora(
 
 CREATE TABLE Fornecedor(
   cnpj CHAR(14),
-  nome CHAR(50) NOT NULL,
+  nome CHAR(100) NOT NULL,
   email CHAR(320) NOT NULL,
   telefone CHAR(11) NOT NULL,
   cep CHAR(8) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE Produto(
   descricao_aval CHAR(300),
   nota INT,
   nome CHAR(20) NOT NULL,
-  categoria INT NOT NULL,
+  categoria INT UNIQUE NOT NULL,
   data_val DATE DEFAULT NULL,
   quantidade INT DEFAULT 1 NOT NULL,
   descricao CHAR(300) NOT NULL,
@@ -98,7 +98,8 @@ CREATE TABLE Produto(
   PRIMARY KEY(codigo),
   FOREIGN KEY (categoria) REFERENCES Categoria(codigo)
   ON DELETE CASCADE,
-  CONSTRAINT check_nota CHECK (nota <= 5 AND nota >= 0)
+  CONSTRAINT check_nota CHECK (nota <= 5 AND nota >= 0),
+  CONSTRAINT check_valores CHECK (preco_compra >= 0 AND preco_venda >= 0)
 );
 
 CREATE TABLE Fornece(
@@ -119,7 +120,9 @@ CREATE TABLE Possui(
   FOREIGN KEY (cod_ordem) REFERENCES OrdemDeCompra(codigo) 
   ON DELETE CASCADE,
   FOREIGN KEY (cod_produto) REFERENCES Produto(codigo)
-  ON DELETE CASCADE
+  ON DELETE CASCADE,
+  CONSTRAINT chk_valor CHECK (valor >= 0),
+  CONSTRAINT chk_quantidade CHECK (quantidade >= 0)
 );
 
 
@@ -129,7 +132,7 @@ CREATE TABLE NotaFiscal(
   valor_total NUMERIC(8, 2) NOT NULL,
   inscricao_estadual CHAR(14) NOT NULL,
   chave_acesso CHAR(44) NOT NULL,
-  codigo_ordem CHAR(10) NOT NULL,
+  codigo_ordem INT UNIQUE NOT NULL,
   PRIMARY KEY(chave_acesso),
   FOREIGN KEY (codigo_ordem) REFERENCES OrdemDeCompra(codigo)
 );
