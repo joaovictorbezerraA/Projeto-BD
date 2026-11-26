@@ -90,7 +90,7 @@ CREATE TABLE Produto(
   descricao_aval CHAR(300),
   nota INT,
   nome CHAR(20) NOT NULL,
-  categoria INT UNIQUE NOT NULL,
+  categoria INT NOT NULL,
   data_val DATE DEFAULT NULL,
   quantidade INT DEFAULT 1 NOT NULL,
   descricao CHAR(300) NOT NULL,
